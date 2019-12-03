@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+
+{% block title %}data manipulation{% endblock %}
+{% block page_content %}
+
+
+<div class="container-fluid">
+
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title">Insert data</h4>
+                  <p class="text-muted">insert data into database</p>
+                  {% if message %}
+                  {{message}}!
+                  {% endif %}
+                  <form name="input"  method="post">
+                      <div class="form-group mg-t20" style ="font-family:verdana">
+                          <i class="icon-user icon_font"></i>
+                          <label for="inputDate" class="sr-only">date</label>
+                          <input type="country" name="inputDate" class="form-control" id="inputDate" placeholder="Date" autofocus><br>
+                      </div>
+                      <div class="form-group mg-t20" style ="font-family:verdana">
+                          <i class="icon-user icon_font"></i>
+                          <label for="inputCountryName" class="sr-only">country name</label>
+                          <input type="country" name="inputCountryName" class="form-control" id="nputCountryName" placeholder="Country_name" autofocus><br>
+                      </div>
+                      <div class="form-group mg-t20" style ="font-family:verdana">
+                          <i class="icon-user icon_font"></i>
+                          <label for="inputISO_code" class="sr-only">ISO_code</label>
+                          <input type="ISO_code" name="inputISO_code" class="form-control" id="inputISO_code" placeholder="ISO_code" autofocus><br>
+                      </div>
+                      <div class="form-group mg-t20" style ="font-family:verdana">
+                          <i class="icon-lock icon_font"></i>
+                          <label for="inputUncertaintyBounds" class="sr-only">uncertainty bounds</label>
+                          <input type="UncertaintyBounds" name="inputUncertaintyBounds" id="inputUncertaintyBounds" class="form-control" placeholder="UncertaintyBounds"><br>
+                      </div>
+                      <div class="form-group mg-t20" style ="font-family:verdana">
+                          <i class="icon-lock icon_font"></i>
+                          <label for="inputMortalityNumber" class="sr-only">mortality number</label>
+                          <input type="number" name="inputMortalityNumber" id="inputMortalityNumber" class="form-control" placeholder="mortality_rate"><br>
+                      </div>
+                      <input type="submit" class="btn btn-primary" name="input" value="Insert"><br>
+              </form>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Search country</h4>
+                    <p class="text-muted">search data inside database</p>
+                      {% if message %}
+                      {{message}}!
+                      {% endif %}
+                      <form name="input"  method="post">
+                          <div class="form-group mg-t20" style ="font-family:verdana">
+                              <i class="icon-user icon_font"></i>
+                              <label for="inputSearchedCountry" class="sr-only">country to search</label>
+                              <input type="searched_country" name="inputSearchedCountry" class="form-control" id="inputSearchedCountry" placeholder="Country_to_search" autofocus><br>
+                          </div>
+                          <input type="submit" class="btn btn-primary" name="input" value="Search"><br>
+                      </form>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Delete country</h4>
+                        <p class="text-muted">delete data inside database</p>
+                          {% if message %}
+                          {{message}}!
+                          {% endif %}
+                          <form name="input"  method="post">
+                              <div class="form-group mg-t20" style ="font-family:verdana">
+                                  <i class="icon-user icon_font"></i>
+                                  <label for="inputDeletedCountry" class="sr-only">country to delete</label>
+                                  <input type="deleted_country" name="inputDeletedCountry" class="form-control" id="inputDeletedCountry" placeholder="Country_to_delete" autofocus><br>
+                              </div>
+                              <input type="submit" class="btn btn-primary" name="input" value="Delete"><br>
+                          </form>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">update country</h4>
+                          <p class="text-muted">update data inside database</p>
+                            {% if message %}
+                            {{message}}!
+                            {% endif %}
+                            <form name="input"  method="post">
+                                <div class="form-group mg-t20" style ="font-family:verdana">
+                                    <i class="icon-user icon_font"></i>
+                                    <label for="inputUpdatedCountry" class="sr-only">country to update</label>
+                                    <input type="updated_country" name="inputUpdatedCountry" class="form-control" id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br>
+                                </div>
+                                <div class="form-group mg-t20" style ="font-family:verdana">
+                                    <i class="icon-user icon_font"></i>
+                                    <label for="inputUpdatedNumber" class="sr-only">country to update</label>
+                                    <input type="updated_number" name="inputUpdatedNumber" class="form-control" id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br>
+                                </div>
+                                <input type="submit" class="btn btn-primary" name="input" value="Update"><br>
+                            </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+    <div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">interest query 1</h4>
+                          <p class="text-muted">select from join table</p>
+                            {% if message %}
+                            {{message}}!
+                            {% endif %}
+                            <form name="input"  method="post">
+                                <div class="form-group mg-t20" style ="font-family:verdana">
+                                    <i class="icon-user icon_font"></i>
+                                    <label for="interest_country" class="sr-only">country to search</label>
+                                    <input type="interest_country" name="interest_country" class="form-control" id="interest_country" placeholder="country_to_search" autofocus><br>
+                                </div>
+                                <input type="submit" class="btn btn-primary" name="input" value="Interest Query 1"><br>
+                            </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+<div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-body">
+                          <h4 class="card-title">interest query 2</h4>
+                          <p class="text-muted">Union two selection</p>
+                            {% if message %}
+                            {{message}}!
+                            {% endif %}
+                            <form name="input"  method="post">
+                                <div class="form-group mg-t20" style ="font-family:verdana">
+                                    <i class="icon-user icon_font"></i>
+                                    <label for="interest_query2_country1" class="sr-only">country1 to search</label>
+                                    <input type="interest_query2_country1" name="interest_query2_country1" class="form-control" id="interest_query2_country1" placeholder="country1" autofocus><br>
+                                </div>
+                                <div class="form-group mg-t20" style ="font-family:verdana">
+                                    <i class="icon-user icon_font"></i>
+                                    <label for="interest_query2_country2" class="sr-only">country2 to search</label>
+                                    <input type="interest_query2_country2" name="interest_query2_country2" class="form-control" id="interest_query2_country2" placeholder="country2" autofocus><br>
+                                </div>
+                                <input type="submit" class="btn btn-primary" name="input" value="Interest Query 2" id = "drawing"><br>
+
+                            </form>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+
+</div>
+
+
+
+<!-- <script>
+  $("#drawing").click(function() {
+    alert(drawing.name)
+
+
+
+
+
+
+</script> -->
+
+
+
+
+
+
+
+    <!-- <button id="load" οnclick="window.location.reload('/moban.html')">跳转</button>   -->
+
+
+
+<div>
+    <table class="table table-bordered">
+    <tr>
+        <th>date</th>
+        <th>country name</th>
+        <th>ISO_code</th>
+        <th>uncertainty bounds</th>
+        <th>mortality rate</th>
+        <th>mortality number</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

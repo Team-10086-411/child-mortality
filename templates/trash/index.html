@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}home{% endblock %}
+{% block page_content %}
+    <div class="container wrap1" style="height:450px; font-family:verdana">
+        <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" >
+
+            <p class="text-center font16">insert data</p>
+
+            {% if message %}
+            {{message}}!
+            {% endif %}
+            <form name="input"  method="post">
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputDate" class="sr-only">date</label>
+                    <input type="country" name="inputDate" class="form-control" id="inputDate" placeholder="Date" autofocus><br>
+                </div>
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputCountryName" class="sr-only">country name</label>
+                    <input type="country" name="inputCountryName" class="form-control" id="nputCountryName" placeholder="Country_name" autofocus><br>
+                </div>
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputISO_code" class="sr-only">ISO_code</label>
+                    <input type="ISO_code" name="inputISO_code" class="form-control" id="inputISO_code" placeholder="ISO_code" autofocus><br>
+                </div>
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-lock icon_font"></i>
+                    <label for="inputUncertaintyBounds" class="sr-only">uncertainty bounds</label>
+                    <input type="UncertaintyBounds" name="inputUncertaintyBounds" id="inputUncertaintyBounds" class="form-control" placeholder="UncertaintyBounds"><br>
+                </div>
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-lock icon_font"></i>
+                    <label for="inputMortalityNumber" class="sr-only">mortality number</label>
+                    <input type="number" name="inputMortalityNumber" id="inputMortalityNumber" class="form-control" placeholder="mortality_number"><br>
+                </div>
+                <input type="submit" class="login_btn" name="input" value="Insert"><br>
+        </form>
+    </div><!--row end-->
+    </div><!--container end-->
+
+    <div class="container wrap1" style="height:150px; font-family:verdana">
+        <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" >
+            <p class="text-center font16">search country</p>
+            {% if message %}
+            {{message}}!
+            {% endif %}
+            <form name="input"  method="post">
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputSearchedCountry" class="sr-only">country to search</label>
+                    <input type="searched_country" name="inputSearchedCountry" class="form-control" id="inputSearchedCountry" placeholder="Country_to_search" autofocus><br>
+                </div>
+                <input type="submit" class="login_btn" name="input" value="Search"><br>
+            </form>
+        </div><!--row end-->
+    </div><!--container end-->
+
+    <div class="container wrap1" style="height:150px; font-family:verdana">
+        <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" >
+            <p class="text-center font16">delete country</p>
+            {% if message %}
+            {{message}}!
+            {% endif %}
+            <form name="input"  method="post">
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputDeletedCountry" class="sr-only">country to delete</label>
+                    <input type="deleted_country" name="inputDeletedCountry" class="form-control" id="inputDeletedCountry" placeholder="Country_to_delete" autofocus><br>
+                </div>
+                <input type="submit" class="login_btn" name="input" value="Delete"><br>
+            </form>
+        </div><!--row end-->
+    </div><!--container end-->
+
+    <div class="container wrap1" style="height:250px; font-family:verdana">
+        <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" >
+            <p class="text-center font16">update country</p>
+            {% if message %}
+            {{message}}!
+            {% endif %}
+            <form name="input"  method="post">
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputUpdatedCountry" class="sr-only">country to update</label>
+                    <input type="updated_country" name="inputUpdatedCountry" class="form-control" id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br>
+                </div>
+                <div class="form-group mg-t20" style ="font-family:verdana">
+                    <i class="icon-user icon_font"></i>
+                    <label for="inputUpdatedNumber" class="sr-only">country to update</label>
+                    <input type="updated_number" name="inputUpdatedNumber" class="form-control" id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br>
+                </div>
+                <input type="submit" class="login_btn" name="input" value="Update"><br>
+            </form>
+        </div><!--row end-->
+    </div><!--container end-->
+
+
+
+
+    <!-- <button id="load" οnclick="window.location.reload('/moban.html')">跳转</button>   -->
+
+
+<!--
+<div>
+    <table class="table table-bordered">
+    <tr>
+        <th>date</th>
+        <th>country name</th>
+        <th>ISO_code</th>
+        <th>uncertainty bounds</th>
+        <th>mortality number</th>
+    </tr>
+        {% for i in u %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+</div> -->
+{% endblock %}

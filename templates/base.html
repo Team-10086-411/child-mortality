@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SAVE-OUR-CHILDREN</title>
+  <!-- Favicon icon -->
+  <!-- <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png"> -->
+  <link rel="icon" href="{{ url_for('static', filename='images/img/favicon.png') }}">
+  <!-- Pignose Calender -->
+  <!-- <link href="./plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename = 'plugins/pg-calendar/css/pignose.calendar.min.css')}}">
+  <!-- Chartist -->
+  <!-- <link rel="stylesheet" href="./plugins/chartist/css/chartist.min.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename = 'plugins/chartist/css/chartist.min.css')}}">
+
+  <!-- <link rel="stylesheet" href="./plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename = 'plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css')}}">
+
+  <!-- Custom Stylesheet -->
+  <!-- <link href="css/style.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename = 'css/style.css')}}">
+
+  <style>
+    team {
+      color: red;
+    }
+  </style>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+</head>
+
+<body>
+
+  <!--*******************
+        Preloader start
+    ********************-->
+  <div id="preloader">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+      </svg>
+    </div>
+  </div>
+  <!--*******************
+        Preloader end
+    ********************-->
+
+
+  <!--**********************************
+        Main wrapper start
+    ***********************************-->
+  <div id="main-wrapper">
+
+    <!--**********************************
+            Nav header start
+        ***********************************-->
+    <div class="nav-header">
+      <div class="brand-logo">
+        <a href="/">
+
+          <h3 class="card-title text-white">Child Mortality</h3>
+
+
+          <!-- <b class="logo-abbr"><img src="{{ url_for('static', filename='images/logo.png') }}" alt=""></b> -->
+          <!-- <b class="logo-abbr"><img src="images/logo.png" alt=""> </b> -->
+          <!-- <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span> -->
+          <!-- <span class="logo-compact"><img src="{{ url_for('static', filename='images/logo-compact.png') }}" alt=""></span> -->
+
+          <!-- <span class="brand-title"> -->
+          <!-- <img src="{{ url_for('static', filename='images/logo-text.png') }}" alt=""> -->
+          <!-- <img src="images/logo-text.png" alt=""> -->
+          <!-- </span> -->
+        </a>
+      </div>
+    </div>
+    <!--**********************************
+            Nav header end
+        ***********************************-->
+
+    <!--**********************************
+            Header start
+        ***********************************-->
+    <div class="header">
+      <div class="header-content clearfix">
+
+        <div class="nav-control">
+          <div class="hamburger">
+            <!-- <span class="toggle-icon"><i class="icon-menu"></i></span> -->
+          </div>
+        </div>
+        <div class="header-left">
+          <div class="input-group icons">
+            <img class="img-fluid" src="{{ url_for('static', filename='images/10086.png') }}" alt="">
+
+
+          </div>
+        </div>
+        <div class="header-right">
+          <!-- <ul class="clearfix"> -->
+          <img class="img-fluid" src="{{ url_for('static', filename='images/ddd.jpeg') }}" alt="">
+
+          <!-- <center><b><h2 class = "team">Team 10086</h2></b></center> -->
+          <!-- <Center><h1 style="color:#7571f9">Team 10086</h1></Center> -->
+
+
+          <!-- </ul> -->
+        </div>
+      </div>
+    </div>
+    <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+    <!--**********************************
+            Sidebar start
+        ***********************************-->
+    <div class="nk-sidebar">
+      <div class="nk-nav-scroll">
+        <ul class="metismenu" id="menu">
+
+          <li class="nav-label">Dashboard</li>
+
+          <li>
+            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+              <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">STORY</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="story">Profile</a></li>
+              <!-- <li><a href="./app-calender.html">Calender</a></li> -->
+            </ul>
+          </li>
+
+          <li class="mega-menu mega-menu-sm">
+            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+              <i class="icon-globe-alt menu-icon"></i><span class="nav-text">DATA</span>
+            </a>
+            <ul aria-expanded="true">
+              <li><a href="rawdata">Raw-Data</a></li>
+
+              <li><a href="dataM">Data-Manupliation</a></li>
+              <li><a href="dataV">Data-Visulization</a></li>
+              <li><a href="graph">Graph</a></li>
+              <li><a href="map">Map</a></li>
+              <li><a href="rawdata">Data-Blank</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+              <i class="icon-graph menu-icon"></i> <span class="nav-text">CHARTS</span>
+            </a>
+            <ul aria-expanded="True">
+              <li><a href="rundata">Running-Data</a></li>
+
+            </ul>
+          </li>
+
+
+          <!-- <li class="nav-label">Feedback</li>
+
+
+          <li>
+            <a href="javascript:void()" aria-expanded="false">
+              <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="forms">FORMS</a></li>
+            </ul>
+          </li> -->
+
+          <li class="nav-label">AboutUs</li>
+
+          <li>
+            <a href="javascript:void()" aria-expanded="false">
+              <i class="icon-notebook menu-icon"></i><span class="nav-text">ManPage</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="manpage">MANPAGE</a></li>
+              <!-- <li><a href="dataM">data-manupliation</a></li> -->
+            </ul>
+          </li>
+
+
+          <li>
+            <a href="javascript:void()" aria-expanded="false">
+              <i class="icon-envelope menu-icon"></i> <span class="nav-text">ThanksPage</span>
+            </a>
+            <ul aria-expanded="false">
+              <li><a href="email">ThanksPage</a></li>
+
+
+            </ul>
+          </li>
+
+
+
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+    <!--**********************************
+            Content body start
+        ***********************************-->
+    <div class="content-body">
+
+      {% block page_content %}{% endblock %}
+    </div>
+    <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+    <!--**********************************
+            Footer start
+        ***********************************-->
+    <div class="footer">
+      <div class="copyright">
+        <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+      </div>
+    </div>
+    <!--**********************************
+            Footer end
+        ***********************************-->
+  </div>
+  <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+  <!--**********************************
+        Scripts
+    ***********************************-->
+
+
+
+
+
+
+
+
+
+
+  <script src="{{url_for('static',filename = 'plugins/common/common.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'js/custom.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'js/settings.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'js/gleek.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'js/styleSwitcher.js')}}"></script>
+
+
+
+
+
+
+  <script src="{{url_for('static',filename = 'plugins/chart.js/Chart.bundle.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'plugins/circle-progress/circle-progress.min.js')}}"></script>
+
+
+  <script src="{{url_for('static',filename = 'plugins/d3v3/index.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'plugins/topojson/topojson.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'plugins/datamaps/datamaps.world.min.js')}}"></script>
+
+
+
+  <script src="{{url_for('static',filename = 'js/dashboard/dashboard-1.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename = 'plugins/chartist/js/chartist.min.js')}}"></script>
+
+  <!-- <script src = "{{url_for('static',filename = 'plugins/pg-calendar/js/pignose.calendar.min.js')}}"></script> -->
+  <script src="{{url_for('static',filename = 'plugins/moment/moment.min.js')}}"></script>
+  <script src="{{url_for('static',filename = 'plugins/morris/morris.min.js')}}"></script>
+  <script src="{{url_for('static',filename = 'plugins/raphael/raphael.min.js')}}"></script>
+
+
+</body>
+
+</html>

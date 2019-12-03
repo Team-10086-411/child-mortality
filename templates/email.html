@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+<!-- {% block title %}rawdata{% endblock %} -->
+{% block page_content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-12 m-b-30">
+            <h1 class="d-inline">Special Thanks</h1>
+            <p class="text-muted"></p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card ">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/abdubrilliantprofessor.jpg') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Abdu Alawini</h5>
+                        <p class="card-text">Our Brilliant CS 411 Professor
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/unknowphoto.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Yangyang Dai</h5>
+                        <p class="card-text">Gave us important suggestions
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/github.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Github</h5>
+                        <p class="card-text">http://github.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/js.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">JavaScript</h5>
+                        <p class="card-text">https://www.javascript.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/ourworlddata.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Our World In Data</h5>
+                        <p class="card-text">https://ourworldindata.org/child-mortality</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/unicef.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Unicef</h5>
+                        <p class="card-text">https://data.unicef.org/resources</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/echarts.png') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Echart</h5>
+                        <p class="card-text">https://echarts.apache.org/examples/en/</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid" src="{{ url_for('static', filename='thankslogo/ghdx.jpg') }}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Global Health Data Exchange</h5>
+                        <p class="card-text">http://ghdx.healthdata.org/gbd-results-tool</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}data{% endblock %}
+{% block page_content %}
+<script src = "{{url_for('static',filename = 'src/visualcopy.js')}}"></script>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">data visualization</h4>
+
+
+        {% if message %}
+        {{message}}!
+        {% endif %}
+
+
+        <form name="Visualization"  method="post">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                <select name="country1" id = "country1" class="form-control form-control-lg">
+                    <option value="0">country</option>
+                    {% for i in u2 %}
+                      <option value={{i[0]}}>{{i[0]}}</option>
+                    {% endfor %}
+                 </select>
+                 </div>
+
+                 <div class="form-group col-md-3">
+                 <select name="country2" id = "country2" class="form-control form-control-lg">
+                     <option value="0">country</option>
+                     {% for i in u2 %}
+                       <option value={{i[0]}}>{{i[0]}}</option>
+                     {% endfor %}
+                  </select>
+                  </div>
+                      <div class="form-group col-md-3">
+                        <input type="submit" class="btn  mb-1 btn-primary" name="input" value="Visualization"><br>
+                        <input type="button" name="countryname" value="ccname" id="ccname">
+                      </div>
+            <div class="form-group mg-t20" style ="font-family:verdana">
+            </div>
+        </form>
+      </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

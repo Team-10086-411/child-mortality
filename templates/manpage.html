@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}data manipulation{% endblock %}
+{% block page_content %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center mb-4">
+                        <img class="img-fluid" src="{{ url_for('static', filename='picture/sicong_zhang.jpeg') }}" width="80" height="80" alt="">
+                        <div class="media-body">
+                            <h3 class="mb-0">Sicong Zhang</h3>
+                            <p class="text-muted mb-0">China</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                <h3 class="mb-0">263</h3>
+                                <p class="text-muted px-4">Following</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                <h3 class="mb-0" id = "sicong">325</h3>
+                                <p class="text-muted">Followers</p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-danger px-5" onclick="sicong()">Follow Now</button>
+                            <script>
+                                function sicong() {
+                                    document.getElementById("sicong").innerHTML = "326";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <h4>About Me</h4>
+                    <p class="text-muted">Hi, I'm Sicong Zhang.</p>
+                    <ul class="card-profile__info">
+                        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>217-904-8343</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>sicong3@illinois.edu</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center mb-4">
+                        <img class="img-fluid" src="{{ url_for('static', filename='picture/siyu_niu.jpeg') }}" width="80" height="80" alt="">
+                        <div class="media-body">
+                            <h3 class="mb-0">Siyu Niu</h3>
+                            <p class="text-muted mb-0">China</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                <h3 class="mb-0">333</h3>
+                                <p class="text-muted px-4">Following</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                <h3 class="mb-0" id="siyu">355</h3>
+                                <p class="text-muted">Followers</p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-danger px-5" onclick="siyu()">Follow Now</button>
+                            <script>
+                                function siyu() {
+                                    document.getElementById("siyu").innerHTML = "356";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <h4>About Me</h4>
+                    <p class="text-muted">Hi, I'm Siyu Niu.</p>
+                    <ul class="card-profile__info">
+                        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>217-904-9814</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>siyuniu2@illinois.edu</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center mb-4">
+                        <img class="img-fluid" src="{{ url_for('static', filename='picture/xiran_yin.jpeg') }}" width="80" height="80" alt="">
+                        <div class="media-body">
+                            <h3 class="mb-0">Xiran Yin</h3>
+                            <p class="text-muted mb-0">China</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                <h3 class="mb-0">342</h3>
+                                <p class="text-muted px-4">Following</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                <h3 class="mb-0" id="xiran">634</h3>
+                                <p class="text-muted">Followers</p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-danger px-5" onclick="xiran()">Follow Now</button>
+                            <script>
+                                function xiran() {
+                                    document.getElementById("xiran").innerHTML = "635";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <h4>About Me</h4>
+                    <p class="text-muted">Hi, I'm Xiran Yin.</p>
+                    <ul class="card-profile__info">
+                        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>217-905-9834</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>xiran3@illinois.edu</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-xl-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center mb-4">
+                        <img class="img-fluid" src="{{ url_for('static', filename='picture/yilun_zhao.jpeg') }}" width="80" height="80" alt="">
+                        <div class="media-body">
+                            <h3 class="mb-0">Yilun Zhao</h3>
+                            <p class="text-muted mb-0">China</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-primary"><i class="icon-people"></i></span>
+                                <h3 class="mb-0">342</h3>
+                                <p class="text-muted px-4">Following</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card card-profile text-center">
+                                <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                <h3 class="mb-0" id="yilun">564</h3>
+                                <p class="text-muted">Followers</p>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
+                            <button class="btn btn-danger px-5" onclick="yilun()">Follow Now</button>
+                            <script>
+                                function yilun() {
+                                    document.getElementById("yilun").innerHTML = "565";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <h4>About Me</h4>
+                    <p class="text-muted">Hi, I'm Yilun Zhao.</p>
+                    <ul class="card-profile__info">
+                        <li class="mb-1"><strong class="text-dark mr-4">Mobile</strong> <span>217-819-8646</span></li>
+                        <li><strong class="text-dark mr-4">Email</strong> <span>siyuniu2@illinois.edu</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

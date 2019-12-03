@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+<!-- {% block title %}rawdata{% endblock %} -->
+{% block page_content %}
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <!-- <div class="content-body"> -->
+
+        <div class="container-fluid">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Data Visualization</h3>
+                            <body text="green">
+                                <h5>Select Your Visualization Option to explore the relationships</h5>
+                                <p>Charity Support: explore charities that support children worldwide and number of children supported</p>
+                                <p>Death Reason: explore causes that direcly lead to children death</p>
+                                <p>Social Problem: explore social problems that indirectly increase children mortality rate</p>
+                            </body>
+        <!-- <div class="container wrap1" style="height:450px; font-family:verdana"> -->
+            <!-- <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" > -->
+
+                {% if message %}
+                {{message}}!
+                {% endif %}
+
+
+                <form name="Visualization"  method="post">
+                    <div class="form-row">
+                        <!-- <i class="icon-user icon_font"></i> -->
+                        <!-- <label for="inputUpdatedCountry" class="sr-only">country to update</label> -->
+                        <!-- <input type="updated_country" name="inputUpdatedCountry" class="form-control" id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br> -->
+                        <div class="form-group col-md-3">
+                        <select name="charitysupport" id = "charitysupport" class="form-control form-control-lg">
+                              <option value="0">Charity Support</option>
+                              <option value="Save the Children">Save the Children</option>
+                              <option value="International Rescue Committee">International Rescue Committee</option>
+                              <option value="Partners in Health">Partners in Health</option>
+                              <option value="Catholic Relief Services">Catholic Relief Services</option>
+                              <option value="Direct Relief">Direct Relief</option>
+                              <option value="Doctors Without Borders/Médecins Sans Frontières">Doctors Without Borders/Médecins Sans Frontières</option>
+                              <option value="Oxfam America">Oxfam America</option>
+                              <option value="UNICEF">UNICEF</option>
+                              <option value="Boys & Girls Clubs of America">Boys & Girls Clubs of America</option>
+                              <option value="CASA">CASA</option>
+                              <option value="March of Dimes">March of Dimes</option>
+                              <option value="National Center for Missing and Exploited Children">National Center for Missing and Exploited Children</option>
+                              <option value="Partnership for a Drug-Free America">Partnership for a Drug-Free America</option>
+                              <option value="Reach Out and Read">Reach Out and Read</option>
+
+
+
+
+
+                         </select>
+                         </div>
+                         <!-- <p>start-year</p> -->
+                         <div class="form-group col-md-3">
+                         <select name="deathreason" id = "deathreason" class="form-control form-control-lg">
+                               <option value="0">Death Reason</option>
+                               <option value="Nutritional deficiencies">Nutritional deficiencies</option>
+                               <option value="Neoplasms">Neoplasms</option>
+                               <option value="Other non-communicable diseases">Other non-communicable diseases</option>
+                               <option value="Skin and subcutaneous diseases">Skin and subcutaneous diseases</option>
+                               <option value="Transport injuries">Transport injuries</option>
+                               <option value="Digestive diseases">Digestive diseases</option>
+                               <option value="Unintentional injuries">Unintentional injuries</option>
+                               <option value="Self-harm and interpersonal violence">Self-harm and interpersonal violence</option>
+                               <option value="Cardiovascular diseases">Cardiovascular diseases</option>
+                               <option value="Neglected tropical diseases and malaria">Neglected tropical diseases and malaria</option>
+                               <option value="Neurological disorders">Neurological disorders</option>
+                               <option value="Other infectious diseases">Other infectious diseases</option>
+                               <option value="Chronic respiratory diseases">Chronic respiratory diseases</option>
+                               <option value="HIV/AIDS and sexually transmitted infections">HIV/AIDS and sexually transmitted infections</option>
+                               <option value="Respiratory infections and tuberculosis">Respiratory infections and tuberculosis</option>
+                               <option value="Enteric infections">Enteric infections</option>
+                               <option value="Maternal and neonatal disorders">Maternal and neonatal disorders</option>
+                               <option value="Diabetes and kidney diseases">Diabetes and kidney diseases</option>
+
+
+
+                          </select>
+                          </div>
+
+                          <div class="form-group col-md-3">
+                          <select name="socialreason" id = "socialreason" class="form-control form-control-lg">
+                                <option value="0">Social Problem</option>
+                                <option value="Racism">Racism</option>
+                                <option value="Gender identity">Gender identity</option>
+                                <option value="Religion">Religion</option>
+                                <option value="Drugs and alcohol abuse">Drugs and alcohol abuse</option>
+                                <option value="Government and social life">Government and social life</option>
+                                <option value="Education disparity">Education disparity</option>
+                                <option value="War">War</option>
+                                <option value="Materialism">Materialism</option>
+                                <option value="Family and single parenthood">Family and single parenthood</option>
+                                <option value="Obesity and social life">Obesity and social life</option>
+                                <option value="Poverty and social life">Poverty and social life</option>
+                                <option value="The power of advertisements">The power of advertisements</option>
+                                <option value="Procrastination">Procrastination</option>
+                                <option value="Unemployment">Unemployment</option>
+                                <option value="Population explosion">Population explosion</option>
+                                <option value="Sexual abuse">Sexual abuse</option>
+                                <option value="Lack of infrastructure">Lack of infrastructure</option>
+                                <option value="Prostitution">Prostitution</option>
+                                <option value="Alcoholism">Alcoholism</option>
+                                <option value="Political Corruption">Political Corruption</option>
+                                <option value="Drug abuse">Drug abuse</option>
+                                <option value="Economic Deprivation">Economic Deprivation</option>
+                                <option value="Delinquency">Delinquency</option>
+                                <option value="Anti social behavior">Anti social behavior</option>
+                                <option value="Beggary">Beggary</option>
+                                <option value="Public health">Public health</option>
+                                <option value="Social inequality">Social inequality</option>
+                                <option value="Education and public schools">Education and public schools</option>
+                                <option value="Crime and the justice system">Crime and the justice system</option>
+                                <option value="Hunger">Hunger</option>
+
+                           </select>
+                           </div>
+
+
+
+
+                          <!-- <input type="range" min="0" max="15"> -->
+        <div class="form-group col-md-3">
+                          <input type="submit" class="btn  mb-1 btn-primary" name="input" value="Visualization"><br>
+        </div>
+                          <!-- <iframe name='frameFile' style='display: none;'></iframe> -->
+                          <!-- <button id="btnselect" onclick="getValue()">test<button> -->
+                    </div>
+                    <div class="form-group mg-t20" style ="font-family:verdana">
+                        <!-- <i class="icon-user icon_font"></i> -->
+                        <!-- <label for="inputUpdatedNumber" class="sr-only">country to update</label> -->
+                        <!-- <input type="updated_number" name="inputUpdatedNumber" class="form-control" id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br> -->
+                    </div>
+
+                </form>
+
+
+
+              </div>
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+        <div class="container-fluid">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+          <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="active-member">
+                              <html>
+                                  <head>
+                                      <title>DataViz</title>
+                                      <style type="text/css">
+                                          #viz {
+                                              width: 900px;
+                                              height: 700px;
+                                          }
+                                      </style>
+                                      <script src="https://rawgit.com/neo4j-contrib/neovis.js/master/dist/neovis.js"></script>
+                                  </head>
+                                  <script>
+
+                                      function draw() {
+                                          //console.log("call draw()");
+                                        var config;
+                                        var death_reason = '{{deathreason}}'
+                                        var charity_reason = '{{charitysupport}}';
+                                        var social_reason = '{{socialreason}}';
+                                        if ((death_reason != '0') && (death_reason.length != 2)) {
+                                          // Death Reason, show relationship cause_death
+                                          //console.log("arrive deathreason")
+                                          //console.log(death_reason)
+                                          config = {
+                                              container_id: "viz",
+                                              server_url: "bolt://18.221.191.154:7687",
+                                              //server_url: "bolt://localhost:7687",
+                                              server_user: "neo4j",
+                                              server_password: "YgCeDtCqosS3",
+                                              //server_password: "excalibur",
+                                              labels: {
+                                                "Country": {
+                                                    caption: "country_name",
+                                                    size: "country_mortality_rate",
+                                                    community: "continent_number"
+                                                    //"sizeCypher": "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c"
+                                                },
+
+                                                  "Cause": {
+                                                      caption: "cause_name",
+                                                  }
+                                              },
+                                              relationships: {
+                                                  "cause_death": {
+                                                      caption: false,
+                                                      thickness: "cause_death_per_country"
+                                                  }
+                                              },
+
+                                              initial_cypher: (`MATCH p=(ca:Cause{cause_name:'${death_reason}'})-[caco:cause_death]->(co:Country) RETURN p ORDER BY caco.cause_death_per_country DESC LIMIT 50`)
+                                          }
+                                      } else if (charity_reason != 0 && charity_reason.length != 2) {
+                                          // Charity Support, show support relationship
+                                          //console.log("ch")
+
+                                          config = {
+                                              container_id: "viz",
+                                              server_url: "bolt://18.221.191.154:7687",
+                                              //server_url: "bolt://localhost:7687",
+                                              server_user: "neo4j",
+                                              server_password: "YgCeDtCqosS3",
+                                              //server_password: "excalibur",
+                                              labels: {
+                                                "Country": {
+                                                    caption: "country_name",
+                                                    size: "country_mortality_rate",
+                                                    community: "continent_number"
+                                                    //"sizeCypher": "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c"
+                                                },
+
+                                                  "Charity": {
+                                                      caption: "charity_name",
+                                                      size: "num_global_supported_children",
+                                                  }
+                                              },
+                                              relationships: {
+                                                  "support": {
+                                                      caption: false,
+                                                      thickness: "num_country_supported_children"
+                                                  }
+                                              },
+
+                                              initial_cypher: (`MATCH p=(ch:Charity{charity_name:'${charity_reason}'})-[chco:support]->(co:Country) RETURN p ORDER BY chco.num_country_supported_children DESC LIMIT 100`)
+                                          }
+                                      } else if (social_reason != 0 && social_reason.length != 2){
+                                          // Social Problem
+                                          config = {
+                                              container_id: "viz",
+                                              server_url: "bolt://18.221.191.154:7687",
+                                              //server_url: "bolt://localhost:7687",
+                                              server_user: "neo4j",
+                                              server_password: "YgCeDtCqosS3",
+                                              //server_password: "excalibur",
+                                              labels: {
+                                                "Country": {
+                                                    caption: "country_name",
+                                                    size: "country_mortality_rate",
+                                                    community: "continent_number"
+                                                    //"sizeCypher": "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c"
+                                                },
+                                                "Social": {
+                                                    caption: "social_problem",
+                                                }
+                                              },
+                                              relationships: {
+                                                  "indirectly_cause_death": {
+                                                      caption: false,
+                                                  }
+                                              },
+
+                                              initial_cypher: (`MATCH p=(so:Social{social_problem:'${social_reason}'})-[soco:indirectly_cause_death]->(co:Country) RETURN p LIMIT 100`)
+                                          }
+                                        } else {
+                                          // default graph
+                                          config = {
+                                              container_id: "viz",
+                                              server_url: "bolt://18.221.191.154:7687",
+                                              //server_url: "bolt://localhost:7687",
+                                              server_user: "neo4j",
+                                              server_password: "YgCeDtCqosS3",
+                                              //server_password: "excalibur",
+                                              labels: {
+                                                "Country": {
+                                                    caption: "country_name",
+                                                    size: "country_mortality_rate",
+                                                    community: "continent_number"
+                                                    //"sizeCypher": "MATCH (n) WHERE id(n) = {id} MATCH (n)-[r]-() RETURN sum(r.weight) AS c"
+                                                },
+                                                "Cause": {
+                                                    caption: "cause_name",
+                                                    size: "global_mortality_rate",
+                                                },
+                                                "Social": {
+                                                    caption: "social_problem",
+                                                },
+                                                "Charity": {
+                                                    caption: "charity_name",
+                                                    size: "num_global_supported_children",
+                                                }
+                                              },
+                                              relationships: {
+                                                "cause_death": {
+                                                    caption: false,
+                                                },
+                                                "support": {
+                                                    caption: false,
+                                                    thickness: "num_country_supported_children"
+                                                },
+                                                "indirectly_cause_death": {
+                                                    caption: false,
+                                                }
+                                              },
+
+                                              initial_cypher: (`MATCH p=(Charity)-[:support]->(co:Country)<-[:indirectly_cause_death]-(Social) WHERE co.country_mortality_rate > 100 RETURN p LIMIT 200 `)
+                                          }
+                                        }
+                                        var viz = new NeoVis.default(config);
+                                        viz.render();
+                                      }
+                                  </script>
+                                  <body onload="draw()">
+                                      <div id="viz"></div>
+                                  </body>
+                              </html>
+
+                              </div>
+                            </div>
+                          </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+          <!-- <div>
+              <table class="table table-bordered">
+              <tr>
+                  <th>date</th>
+                  <th>country name</th>
+                  <th>ISO_code</th>
+                  <th>uncertainty bounds</th>
+                  <th>mortality number</th>
+              </tr>
+                  {% for i in u %}
+                      <tr>
+                          <td>{{ i[0] }}</td>
+                          <td>{{ i[1] }}</td>
+                          <td>{{ i[2] }}</td>
+                          <td>{{ i[3] }}</td>
+                          <td>{{ i[4] }}</td>
+                      </tr>
+              {% endfor %}
+              </table>
+          </div> -->
+        <!-- </div> -->
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+{% endblock %}

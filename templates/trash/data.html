@@ -1,0 +1,79 @@
+
+<p> 来一个正常显示吧吧吧 </p>
+
+<div class="container wrap1" style="height:450px; font-family:verdana">
+    <!-- <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" > -->
+        <p class="text-center font16">data visualization</p>
+        {% if message %}
+        {{message}}!
+        {% endif %}
+        <form name="Visualization"  method="post">
+            <div class="form-group mg-t20" style ="font-family:verdana">
+                <!-- <i class="icon-user icon_font"></i> -->
+                <!-- <label for="inputUpdatedCountry" class="sr-only">country to update</label> -->
+                <!-- <input type="updated_country" name="inputUpdatedCountry" class="form-control" id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br> -->
+                <select name="country" id = "country">
+                    <option value="0">country</option>
+                    {% for i in u %}
+                      <option value={{i[1]}}>{{i[1]}}</option>
+                    {% endfor %}
+                 </select>
+                 <!-- <p>start-year</p> -->
+                 <select name="startyear" id = "startyear">
+                     <option value="0">start-year</option>
+                     <option value="1990">1990</option>
+                     <option value="1991">1991</option>
+                  </select>
+                  <!-- <p>end-year</p> -->
+                  <select name="endyear" id="endyear" >
+                      <option value="0">end-year</option>
+                      <option value="1990">1990</option>
+                      <option value="1991">1991</option>
+                   </select>
+                   <select name="agerange" id="agerange" >
+                       <option value="0">age-range</option>
+                       <option value="7"> 0-7 </option>
+                       <option value="15"> 7-15</option>
+                       <option value="100"> all children </option>
+                    </select>
+                  <!-- <input type="range" min="0" max="15"> -->
+                  <input type="submit" class="login_btn" name="input" value="Visualization"><br>
+                  <!-- <iframe name='frameFile' style='display: none;'></iframe> -->
+                  <!-- <button id="btnselect" onclick="getValue()">test<button> -->
+            </div>
+            <div class="form-group mg-t20" style ="font-family:verdana">
+                <!-- <i class="icon-user icon_font"></i> -->
+                <!-- <label for="inputUpdatedNumber" class="sr-only">country to update</label> -->
+                <!-- <input type="updated_number" name="inputUpdatedNumber" class="form-control" id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br> -->
+            </div>
+
+        </form>
+    <!-- </div><!--row end-->
+</div><!--container end-->
+<form>
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat" selected="selected">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</form>
+
+<!-- <select name="type" οnchange="show_sub(this.options[this.options.selectedIndex].text)">
+    <option value="0">country</option>
+    <option value="1">usa</option>
+    <option value="2">china</option>
+ </select>
+
+ <select name="type" οnchange="show_sub(this.options[this.options.selectedIndex].text)">
+     <option value="0">country</option>
+     <option value="1">usa</option>
+     <option value="2">china</option>
+  </select>
+
+
+  <select name="type" οnchange="show_sub(this.options[this.options.selectedIndex].text)">
+      <option value="0">country</option>
+      <option value="1">usa</option>
+      <option value="2">china</option>
+   </select> -->

@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% block title %}data{% endblock %}
+{% block page_content %}
+
+
+<div class="container-fluid">
+    <!-- row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">data visualization</h4>
+<!-- <div class="container wrap1" style="height:450px; font-family:verdana"> -->
+    <!-- <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content" > -->
+
+        {% if message %}
+        {{message}}!
+        {% endif %}
+
+
+        <form name="Visualization"  method="post">
+            <div class="form-row">
+                <!-- <i class="icon-user icon_font"></i> -->
+                <!-- <label for="inputUpdatedCountry" class="sr-only">country to update</label> -->
+                <!-- <input type="updated_country" name="inputUpdatedCountry" class="form-control" id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br> -->
+                <div class="form-group col-md-3">
+                <select name="country" id = "country" class="form-control form-control-lg">
+                    <option value="0">country</option>
+                    {% for i in u2 %}
+                      <option value={{i[0]}}>{{i[0]}}</option>
+                    {% endfor %}
+                 </select>
+                 </div>
+                 <!-- <p>start-year</p> -->
+                 <div class="form-group col-md-2">
+
+                 <select name="startyear" id = "startyear" class="form-control form-control-lg">
+                     <option value="0">start-year</option>
+                     {% for i in range(1985, 2018) %}
+                       <option value={{i}}>{{i}}</option>
+                     {% endfor %}
+                  </select>
+                  </div>
+                  <!-- <p>end-year</p> -->
+                  <div class="form-group col-md-2">
+
+                  <select name="endyear" id="endyear" class="form-control form-control-lg">
+                      <option value="0">end-year</option>
+                      {% for i in range(1985, 2018) %}
+                        <option value={{i}}>{{i}}</option>
+                      {% endfor %}
+                   </select>
+                   </div>
+
+                   <div class="form-group col-md-2">
+
+
+                   <select name="uncertitybound" id="uncertitybound" class="form-control form-control-lg">
+                       <option value="0">uncertitybound</option>
+                       <option value="Lower"> Lower </option>
+                       <option value="Median"> Median </option>
+                       <option value="Upper"> Upper </option>
+                    </select>
+                    </div>
+                  <!-- <input type="range" min="0" max="15"> -->
+<div class="form-group col-md-3">
+                  <input type="submit" class="btn  mb-1 btn-primary" name="input" value="Visualization"><br>
+</div>
+                  <!-- <iframe name='frameFile' style='display: none;'></iframe> -->
+                  <!-- <button id="btnselect" onclick="getValue()">test<button> -->
+            </div>
+            <div class="form-group mg-t20" style ="font-family:verdana">
+                <!-- <i class="icon-user icon_font"></i> -->
+                <!-- <label for="inputUpdatedNumber" class="sr-only">country to update</label> -->
+                <!-- <input type="updated_number" name="inputUpdatedNumber" class="form-control" id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br> -->
+            </div>
+
+        </form>
+
+
+
+      </div>
+  </div>
+</div>
+</div>
+</div>
+    <!-- </div><!--row end-->
+
+
+    <div class="container-fluid">
+        <!-- row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- including ECharts file -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+    <!-- prepare a DOM container with width and height -->
+    <div id="main" style="width: 800px;height:500px;margin: 0 auto"></div>
+    <div id="main1" style="width: 1200px;height:500px;margin: 0 auto;"></div>
+
+
+    <script type="text/javascript">
+        // based on prepared DOM, initialize echarts instance
+        var myChart = echarts.init(document.getElementById('main'));
+        var chartTwo = echarts.init(document.getElementById('main1'));
+
+        // specify chart configuration item and data
+        var option1 = {
+            title: {
+                text: 'Mortality Rate'
+            },
+            tooltip: {},
+            legend: {
+                data:['Mortality Rate']
+            },
+            xAxis: {
+                data: [{% for m in xvals %}'{{ m }}', {% endfor %}]
+            },
+            yAxis: {},
+            series: [{
+                name: 'Mortality Rate',
+                type: 'line',
+                data: [{% for j in mortality_rate %}'{{ j }}', {% endfor %}]
+            }]
+        };
+
+
+        var option2 = {
+            title:{
+                text: 'Mortality Rate by Country with Predict Data',
+                subtext:'Predict Data start at 2019.5'
+            },
+            tooltip: {},
+            legend: {
+                data:['Mortality Rate']
+            },
+            xAxis:{
+                data: [{% for j in all_year %}'{{ j }}', {% endfor %}]
+            },
+            yAxis:{},
+            visualMap: {
+                show: false,
+                    dimension: 0,
+                    pieces: [{
+                    lte: 33,
+                    color: 'green'
+                }, {
+                    gt: 33,
+                    color: 'red'
+                }]
+            },
+            series:[{
+                name: 'Mortality Rate',
+                type: 'line',
+                data: [{% for k in large_rate %}'{{ k }}', {% endfor %}]
+                /*markArea: {
+                    data: [ [{
+                    name: 'Predict',
+                    xAxis: '2019.5'
+                }, {
+                    xAxis: '2039.5'
+                }]]
+                }*/
+                }]
+        };
+
+        // use configuration item and data specified to show chart
+        myChart.setOption(option1);
+        chartTwo.setOption(option2);
+    </script>
+</body>
+<html>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

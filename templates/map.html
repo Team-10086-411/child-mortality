@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+<!-- {% block title %}rawdata{% endblock %} -->
+{% block page_content %}
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <!-- <div class="content-body"> -->
+
+        <div class="container-fluid">
+            <!-- row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                data visualization
+                            </h4>
+                            <!-- <div class="container wrap1" style="height:450px; font-family:verdana"> -->
+                            <!-- <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content"> -->
+                            {% if message %} {{message}}! {% endif %}
+                            <form name="Visualization" method="post">
+                                <div class="form-row">
+                                    <!-- <i class="icon-user icon_font"></i> -->
+                                    <!-- <label for="inputUpdatedCountry" class="sr-only">country to update</label> -->
+                                    <!-- <input type="updated_country" name="inputUpdatedCountry" class="form-control"
+                                    id="inputUpdatedCountry" placeholder="Country_to_update" autofocus><br> -->
+                                    <div class="form-group col-md-3">
+                                        <select name="cause_name" id="cause_name" class="form-control form-control-lg">
+                                            <option value="cause name">
+                                                cause name
+                                            </option>
+                                            {% for i in u %}
+                                            <option value= "{{i}}">
+
+                                                {{i}}
+                                            </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+
+                                    <!-- <input type="range" min="0" max="15"> -->
+                                    <div class="form-group col-md-3">
+                                        <input type="submit" class="btn  mb-1 btn-primary" name="input" value="map_visualization">
+                                        <br>
+                                    </div>
+                                    <!-- <iframe name='frameFile' style='display: none;'></iframe> -->
+                                    <!-- <button id="btnselect" onclick="getValue()">test<button> -->
+                                </div>
+                                <div class="form-group mg-t20" style="font-family:verdana">
+                                    <!-- <i class="icon-user icon_font"></i> -->
+                                    <!-- <label for="inputUpdatedNumber" class="sr-only">country to update</label> -->
+                                    <!-- <input type="updated_number" name="inputUpdatedNumber" class="form-control"
+                                    id="inputUpdatedNumber" placeholder="number_to_update" autofocus><br> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- </div><!--row end-->
+            <div class="container-fluid">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+        <html>
+
+            <head>
+                <meta charset="utf-8">
+                <!-- including ECharts file -->
+                <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js">
+                </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+                </script>
+                <script src="http://gallery.echartsjs.com/dep/echarts/map/js/world.js">
+                </script>
+            </head>
+
+            <body>
+                <div id="main" style="width: 800px;height:600px;">
+                </div>
+                <script>
+
+                var myChart = echarts.init(document.getElementById('main'));
+          var data = {{ datas|tojson|safe }}
+          var option = {
+            baseOption: {
+              timeline: {
+                axisType: 'category',
+                height: null,
+                label: {
+                  normal: {
+                    textStyle: {
+                      color: '#ddd'
+                    }
+                  },
+                  emphasis: {
+                    textStyle: {
+                      color: '#fff'
+                    }
+                  }
+                },
+                checkpointStyle: {
+                  color: '#bbb',
+                  borderColor: '#777',
+                  borderWidth: 1
+                },
+              },
+              backgroundColor: '#404a59',
+              title: {
+                text: 'Top10 Countries Suffer From the Cause Chosen',
+                left: 'center',
+                top: 'top',
+                textStyle: {
+                  fontSize: 25,
+                  color: 'rgba(255,255,255, 0.9)'
+                }
+              },
+              tooltip: {
+                formatter: function(params) {
+                  if ('value' in params.data) {
+                    return params.data.value[1] + ': ' + params.data.value[0];
+                  }
+                }
+              },
+              grid: {
+                left: '30%',
+                right: '45%',
+                top: '70%',
+                bottom: 20
+              },
+              xAxis: {},
+              yAxis: {},
+              series: [
+                {
+                  id: 'map',
+                  type: 'map',
+                  mapType: 'world',
+                  top: '10%',
+                  bottom: '25%',
+                  left: 10,
+                  itemStyle: {
+                    normal: {
+                      areaColor: '#323c48',
+                      borderColor: '#404a59'
+                    },
+                    emphasis: {
+                      label: {
+                        show: true
+                      },
+                      areaColor: 'rgba(255,255,255, 0.5)'
+                    }
+                  },
+                  data: []
+                }, {
+                  id: 'bar',
+                  type: 'bar',
+                  tooltip: {
+                    show: false
+                  },
+                  label: {
+                    normal: {
+                      show: true,
+                      position: 'right',
+                      textStyle: {
+                        color: '#ddd'
+                      }
+                    }
+                  },
+                  data: []
+                }
+              ]
+            },
+            options: []
+          }
+
+          for (var i = 0; i < data.length; i++) {
+            option.options.push({
+              visualMap: [{
+                dimension: 0,
+                left: 10,
+                itemWidth: 12,
+                min: data[i].data[9].value[0],
+                max: data[i].data[0].value[0],
+                text: ['High', 'Low'],
+                textStyle: {
+                  color: '#ddd'
+                },
+                inRange: {
+                  color: ['lightskyblue', 'yellow', 'orangered', 'red']
+                }
+              }],
+              xAxis: {
+                type: 'value',
+                boundaryGap: [0, 0.1],
+                axisLabel: {
+                  show: false,
+                }
+              },
+              yAxis: {
+                type: 'category',
+                axisLabel: {
+                  textStyle: {
+                    color: '#ddd'
+                  }
+                },
+                data: data[i].data.map(function(ele) {
+                  return ele.value[1]
+                })
+              },
+              series: [
+                {
+                  id: 'map',
+                  data: data[i].data
+                }, {
+                  id: 'bar',
+                  data: data[i].data.map(function(ele) {
+                    return ele.value[0]
+                  }).sort(function(a, b) {
+                    return a > b
+                  })
+                }
+              ]
+            })
+          }
+
+        myChart.setOption(option);
+
+                </script>
+            </body>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </html>
+
+{% endblock %}

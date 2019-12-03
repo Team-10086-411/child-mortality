@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+<!-- {% block title %}rawdata{% endblock %} -->
+{% block page_content %}
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <!-- <div class="content-body"> -->
+
+          <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="active-member">
+                                <div class="table-responsive">
+                                  <table class="table table-xs mb-0">
+                                    <thead>
+                                      <tr>
+                                          <th>date</th>
+                                          <th>country name</th>
+                                          <th>ISO_code</th>
+                                          <th>uncertainty bounds</th>
+                                          <th>mortality number</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for i in u %}
+                                          <tr>
+                                              <td>{{ i[0] }}</td>
+                                              <td>{{ i[1] }}</td>
+                                              <td>{{ i[2] }}</td>
+                                              {% if i[3] == "Lower" %}
+                                              <td><i class="fa fa-circle-o text-failed  mr-2"></i> {{i[3]}}</td>
+                                              {% endif %}
+                                              {% if i[3] == "Median" %}
+                                              <td><i class="fa fa-circle-o text-warning  mr-2"></i> {{i[3]}}</td>
+                                              {% endif %}
+                                              {% if i[3] == "Upper" %}
+                                              <td><i class="fa fa-circle-o text-success  mr-2"></i> {{i[3]}}</td>
+                                              {% endif %}
+
+
+
+                                              <td>
+                                              <div class="progress" style="height: 10px">
+                                                  <div class="progress-bar gradient-1" style="width:  {{i[4]}}%;" role="progressbar"><span class="sr-only">70% Complete</span>
+                                                  </div>
+                                              </div>
+                                              </td>
+
+
+
+
+
+                                              <td>{{ i[4] }}</td>
+                                          </tr>
+                                      {% endfor %}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                  </div>
+            </div>
+          </div>
+          <!-- <div>
+              <table class="table table-bordered">
+              <tr>
+                  <th>date</th>
+                  <th>country name</th>
+                  <th>ISO_code</th>
+                  <th>uncertainty bounds</th>
+                  <th>mortality number</th>
+              </tr>
+                  {% for i in u %}
+                      <tr>
+                          <td>{{ i[0] }}</td>
+                          <td>{{ i[1] }}</td>
+                          <td>{{ i[2] }}</td>
+                          <td>{{ i[3] }}</td>
+                          <td>{{ i[4] }}</td>
+                      </tr>
+              {% endfor %}
+              </table>
+          </div> -->
+        <!-- </div> -->
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+{% endblock %}
